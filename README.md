@@ -1,14 +1,12 @@
-# ID_CARD_DETECTION_SYSTEM
+# FaceMatchingApp
 
 ## Overview
 
-This project is to calculate the age from human faces and allow user to be available for the system.
+This project is to allow user to be available for the system by matching his face with the photo of his ID card.
 This project consists of 2 main sub systems - server and client. The server system is running on LattePanda, while the 
 client server system is running on Raspberry Pi 4.
 
-In the server system, first, after project detects the human face, then recognize his age. If his age is in acceptable 
-range, it passes the user, but if not, server sends the command to extract the correct age from his card to the client 
-system.
+In the server system, first, after project detects the human face, it sends the command to need his photo of ID card to the client. Then it checks if both of them are matched. Finally it recognizes his age. If his age is in acceptable range, it passes the user, but if not, server again sends the command to extract the correct age from his card to the client system.
 
 The client system is waiting for the server system's command. If it receives the command, then it needs the user shows 
 his card(Driver License, ID Card or Passport). Then after it extracts the correct age from his card, it estimates if he 
@@ -74,10 +72,6 @@ This project uses the Sqlite3 database and the GUI of this project has been deve
         ```
         pip3 install -r requirements_client.txt
         ```
-- Database Installation
-
-    On the LattePanda, after installing Sqlite3, please make new folder named "database" in this project directory and 
-    copy the face database named "face_db.db" into the new database folder.
 
 ## Execution
 
@@ -93,7 +87,3 @@ This project uses the Sqlite3 database and the GUI of this project has been deve
         ```
         python3 app_client.py
         ```
-
-## Note
-
-- Once the device is fixed, please don't change the values in config file.
